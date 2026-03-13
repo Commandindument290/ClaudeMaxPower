@@ -10,7 +10,7 @@ ClaudeMaxPower is a GitHub template that shows you — through working examples 
 
 ```bash
 # 1. Clone the template
-git clone https://github.com/your-username/ClaudeMaxPower
+git clone https://github.com/michelbr84/ClaudeMaxPower
 cd ClaudeMaxPower
 
 # 2. Run setup
@@ -23,7 +23,7 @@ nano .env
 claude
 
 # 5. Try your first skill
-/fix-issue --issue 1 --repo your-username/ClaudeMaxPower
+/fix-issue --issue 1 --repo michelbr84/ClaudeMaxPower
 ```
 
 ---
@@ -175,4 +175,4 @@ MIT — see [LICENSE](LICENSE)
 3. Run `/pre-commit` before committing
 4. Open a PR — the `review-pr` skill will help review it
 
-Issues and ideas welcome at [GitHub Issues](https://github.com/your-username/ClaudeMaxPower/issues).
+Issues and ideas welcome at [GitHub Issues](https://github.com/michelbr84/ClaudeMaxPower/issues).
